@@ -2,26 +2,19 @@ package Usuarios;
 import Usuarios.utils.Rol;
 import java.time.LocalDate;
 
-public class Gerente extends Usuario {
-    private LocalDate fechaContrato;
-    private double salario;
-    private int empleadosACargo ;
-    public Gerente(String nombre, String apelllido, Double salario,int empleadosACargo){
-        super(nombre, apelllido, Rol.GERENTE);
-        this.salario=salario;
-        this.fechaContrato=LocalDate.now();//trae la fecha actual y la asigna a este atributo
-        this.empleadosACargo=empleadosACargo;
-    }
-
-    public LocalDate getFechaRegistro() {
-        return fechaContrato;
-    }
-
-    public void mostrarInfo (){
-        System.out.println(fechaContrato);
+public class Gerente extends Usuario{
+    private String equipoQueCoordina;
+    private int personasASuCargo;
+    private LocalDate fechaAscenso;
+    private double sueldo;
+    public Gerente(String nombre, String apellido, LocalDate fechaNacimiento, String nombreUsuario, String contrasena, String equipoQueCoordina, int personasASuCargo){
+        super(nombre, apellido, Rol.GERENTE, fechaNacimiento, nombreUsuario, contrasena);
+        this.equipoQueCoordina= equipoQueCoordina;
+        this.personasASuCargo= personasASuCargo;
+        this.fechaAscenso =LocalDate.now();
     }
     @Override
     public String toString(){
-        return String.format("%s, fecha de contrato: %s, salario: %f, num. empleados a cargo: %d", super.toString(), fechaContrato,salario,empleadosACargo);
+        return String.format("%s, fecha de ascenso: %s, equipo que coordina: %s, personas a su cargo: %d", super.toString(), fechaAscenso, equipoQueCoordina, personasASuCargo);
     }
 }
