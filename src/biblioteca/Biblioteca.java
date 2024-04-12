@@ -1,26 +1,35 @@
 package biblioteca;
 
 import Usuarios.Gerente;
+import Usuarios.Trabajador;
 import Usuarios.Usuario;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Biblioteca {
     //cosas que empiezan con @ son anotations
     //@Deprecated significa no tiene más soporte. Como referencia nadamás en el codigo
-    public ArrayList <Usuario> usuarios = new ArrayList<Usuario>();
+    public ArrayList <Usuario> usuarios = new ArrayList<>();
     public Usuario verificarInicioSesion(String usuario, String contrasena){
+        Usuario us=null;
         for(Usuario usuarioActual:usuarios){
-            if(usuarioActual.getNombreUsuario().equals(usuario)){
-                if(usuarioActual.getContrasena().equals(contrasena)){
-                    return  usuarioActual;
+            if(Objects.equals(usuarioActual.getNombreUsuario(), usuario)){
+                if(Objects.equals(usuarioActual.getContrasena(), contrasena)){
+                    us=usuarioActual;
                 }
-                return null;
             }
         }
-        return null;
+        return us;
     }
-    public void tester(){
-        Gerente gerente=new Gerente("Andrea","Duran","02/09/05","1234")
+    public void anadirUsuario(Usuario usuario){
+        usuarios.add(usuario);
     }
+    public void mostrar(){
+        for (Usuario usuario:usuarios){
+            System.out.println(usuario.toString());
+        }
+    }
+
 }

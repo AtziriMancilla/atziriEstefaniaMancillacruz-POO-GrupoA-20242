@@ -16,7 +16,7 @@ public class Trabajador extends Usuario{
     }
     @Override
     public String toString (){
-        return String.format("%s, horario: %s, area de trabajo: %s, fecha de contrato: %s, sueldo: %d", super.toString(), horario, areaTrabajo, fechaContrato, sueldo);
+        return String.format("%s, horario: %s, area de trabajo: %s, fecha de contrato: %s, sueldo: %f", super.toString(), horario, areaTrabajo, fechaContrato, sueldo);
     }
 }
 

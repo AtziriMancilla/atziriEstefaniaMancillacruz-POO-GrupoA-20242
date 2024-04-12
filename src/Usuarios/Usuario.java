@@ -16,7 +16,7 @@ public class Usuario {
     private String contrasena;
 
 
-    public Usuario(String nom, String apellido, Rol rol,LocalDate fechaNacimiento,String nombreUsuario,String contrasena) {
+    public Usuario(String nombre, String apellido, Rol rol,LocalDate fechaNacimiento,String nombreUsuario,String contrasena) {
         this.id = CANTIDAD_USUARIOS;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -37,7 +37,7 @@ public class Usuario {
     }
     @Override
     public String toString(){
-        return String.format("Id: %d, Nombre completo: %s %s, rol: %s", id, nombre, apellido, rol);
+        return String.format("Id: %d, Nombre completo: %s %s, rol: %s, fecha nacimiento: %s", id, nombre, apellido, rol,fechaNacimiento);
     }
 }
 
