@@ -103,7 +103,7 @@ class Tienda:
         else:
             i = 1
             for alimento in self.__productos_alimento:
-                print(f"{i}) {alimento.obtener_datos_alimento()}")
+                print(f"{i}) {alimento.obtener_informacion()}")
                 i += 1
 
     def __mostrar_belleza(self):
@@ -218,13 +218,14 @@ class Tienda:
     def realizar_compra(self):
         print("**Realizar compra**")
         self.mostrar_clientes()
-        opcion=int(input("Seleccione el cliente"))
+        opcion=int(input("Seleccione el cliente: "))
         cliente=self.__clientes[opcion-1]
         band=True
         productos = []
         cantidad = 0
         while band:
-            opcion=int(input("1)Alimentos\n2)Limpieza\n3)Belleza\n4)Electrodomesticos\n5)Salir"))
+            print("1)Alimentos\n2)Limpieza\n3)Belleza\n4)Electrodomesticos\n5)Salir")
+            opcion=int(input("Seleccione una opcion: "))
             if opcion == 1:
                 print("**Alimentos**")
                 self.__mostrar_alimentos()
@@ -267,7 +268,7 @@ class Tienda:
                     print("No se puede agregar esa cantidad")
             elif opcion == 5:
                 band=False
-        fecha_compra=date.today
+        fecha_compra=date.today()
         self.__compras.append(Compra(cliente,productos,fecha_compra))
         print("Compra realizada con exito")
     
@@ -346,7 +347,21 @@ class Tienda:
     def tester(self):
         alimento1 = Alimento("Papa", 15.5, "15/03/24", 15, "31/03/24")
         alimento2 = Alimento("Melon", 2, "15/03/24", 20, "31/03/24")
-        cliente = Cliente("Andrea", "duran", "Morelia", date.today())
-        self.__clientes.append(cliente)
+        electrodomestico1=Electrodomestico("Licuadora",580,"15/03/24",39,"oster",5.8)
+        electrodomestico2=Electrodomestico("Air fryer",1000,"15/03/24",25,"Gourmia",8.3)
+        belleza1=Belleza("Retinol",800,"15/03/24",12,"La Roche posay",30)
+        belleza2=Belleza("Limpiador facial",300,"15/03/24",12,"La Roche posay",300)
+        limpieza1=Limpieza("Axion",45,"07/03/24",5,"Axion")
+        limpieza2=Limpieza("Pinol",45,"05/03/24",5,"Pinol")
+        cliente1 = Cliente("Andrea", "Duran", "Morelia", date.today())
+        cliente2 = Cliente("Alejandro", "Montejano", "Morelia", date.today())
+        self.__clientes.append(cliente1)
+        self.__clientes.append(cliente2)
         self.__productos_alimento.append(alimento1)
         self.__productos_alimento.append(alimento2)
+        self.__productos_electrodomestico.append(electrodomestico1)
+        self.__productos_electrodomestico.append(electrodomestico2)
+        self.__productos_belleza.append(belleza1)
+        self.__productos_belleza.append(belleza2)
+        self.__productos_limpieza.append(limpieza1)
+        self.__productos_limpieza.append(limpieza2)

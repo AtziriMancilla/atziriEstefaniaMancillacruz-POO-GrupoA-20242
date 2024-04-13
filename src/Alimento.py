@@ -6,5 +6,5 @@ class Alimento(Producto):
         super().__init__(nombre, precio, fecha_importacion, stock)
         self.fecha_caducidad = fecha_caducidad
 
-    def obtener_datos_alimento(self):
+    def obtener_informacion(self):
         return f"{super().obtener_informacion()}, fecha de caducidad: {self.fecha_caducidad}"
