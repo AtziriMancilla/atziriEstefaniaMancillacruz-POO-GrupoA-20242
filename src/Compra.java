@@ -17,8 +17,7 @@ public class Compra {
     public LocalDate getFechaCompra() {
         return fechaCompra;
     }
-    public ArrayList<Carrito> getProductos() {
-
+    public ArrayList<Carrito> getProductos(){
         return productos;
     }
     public void mostrarProductos(){

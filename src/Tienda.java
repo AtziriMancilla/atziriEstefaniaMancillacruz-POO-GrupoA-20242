@@ -133,40 +133,61 @@ public class Tienda {
         mostrarElectrodomesticos();
     }
     private void mostrarAlimentos(){
-        int i=1;
-        for (Alimento alimento:productosAlimento){
-            System.out.println(i+") "+alimento.obtenerDatosAlimento());
-            i++;
+        if(productosAlimento.isEmpty())
+            System.out.println("No hay alimentos");
+        else {
+            int i = 1;
+            for (Alimento alimento : productosAlimento) {
+                System.out.println(i + ") " + alimento.obtenerDatosAlimento());
+                i++;
+            }
         }
     }
     private void mostrarBelleza(){
-        int i=1;
-        for (Belleza belleza:productosBelleza){
-            System.out.println(i+") "+belleza.obtenerInformacion());
-            i++;
+        if(productosBelleza.isEmpty())
+            System.out.println("No hay productos de belleza");
+        else {
+            int i = 1;
+            for (Belleza belleza : productosBelleza) {
+                System.out.println(i + ") " + belleza.obtenerInformacion());
+                i++;
+            }
         }
     }
     private void mostrarElectrodomesticos(){
-        int i=1;
-        for (Electrodomestico electrodomestico:productosElectrodomestico){
-            System.out.println(i+") "+electrodomestico.obtenerInformacion());
-            i++;
+        if(productosElectrodomestico.isEmpty())
+            System.out.println("No hay electrodomesticos");
+        else {
+            int i = 1;
+            for (Electrodomestico electrodomestico : productosElectrodomestico) {
+                System.out.println(i + ") " + electrodomestico.obtenerInformacion());
+                i++;
+            }
         }
     }
     private void mostrarLimpieza(){
-        int i=1;
-        for (Limpieza limpieza:productosLimpieza){
-            System.out.println(i+") "+limpieza.obtenerInformacion());
-            i++;
+        if(productosLimpieza.isEmpty())
+            System.out.println("No hay productos de limpieza");
+        else {
+            int i = 1;
+            for (Limpieza limpieza : productosLimpieza) {
+                System.out.println(i + ") " + limpieza.obtenerInformacion());
+                i++;
+            }
         }
     }
     public void mostrarClientes(){
-        int i=1;
-        for(Cliente cliente:clientes){
-            System.out.println(i+") "+cliente.mostrarInfoConFecha());
-            i++;
+        if(clientes.isEmpty())
+            System.out.println("No hay clientes registrados");
+        else {
+            int i = 1;
+            for (Cliente cliente : clientes) {
+                System.out.println(i + ") " + cliente.mostrarInfoConFecha());
+                i++;
+            }
         }
     }
+
     public void eliminarProducto(){
         Scanner sc=new Scanner(System.in);
         System.out.println("**Eliminar producto**");
@@ -179,10 +200,11 @@ public class Tienda {
                 System.out.println("Seleccione el alimento que desea eliminar: ");
                 opcion=sc.nextInt();
                 boolean band=false;
-                for (Compra compra: compras) {
-                    if (compra.getProductos().contains(productosAlimento.get(opcion - 1))) {
-                        band = true;
-                        break;
+                for (int i=0;i<compras.size();i++) {
+                    for (int j=0;j<compras.get(i).getProductos().size();j++)
+                        if(compras.get(i).getProductos().get(j).getProducto().equals(productosAlimento.get(opcion-1))){
+                            band = true;
+                            break;
                     }
                 }
                 if (band){
@@ -198,11 +220,12 @@ public class Tienda {
                 System.out.println("Seleccione el producto de limpieza que desea eliminar: ");
                 opcion=sc.nextInt();
                 band=false;
-                for (Compra compra: compras) {
-                    if (compra.getProductos().contains(productosLimpieza.get(opcion - 1))) {
-                        band = true;
-                        break;
-                    }
+                for (int i=0;i<compras.size();i++) {
+                    for (int j=0;j<compras.get(i).getProductos().size();j++)
+                        if(compras.get(i).getProductos().get(j).getProducto().equals(productosLimpieza.get(opcion-1))){
+                            band = true;
+                            break;
+                        }
                 }
                 if (band){
                     System.out.println("No se puede eliminar este producto");
@@ -217,11 +240,12 @@ public class Tienda {
                 System.out.println("Seleccione el producto de belleza que desea eliminar: ");
                 opcion=sc.nextInt();
                 band=false;
-                for (Compra compra: compras) {
-                    if (compra.getProductos().contains(productosBelleza.get(opcion - 1))) {
-                        band = true;
-                        break;
-                    }
+                for (int i=0;i<compras.size();i++) {
+                    for (int j=0;j<compras.get(i).getProductos().size();j++)
+                        if(compras.get(i).getProductos().get(j).getProducto().equals(productosBelleza.get(opcion-1))){
+                            band = true;
+                            break;
+                        }
                 }
                 if (band){
                     System.out.println("No se puede eliminar este producto");
@@ -233,14 +257,15 @@ public class Tienda {
                 break;
             case 4:
                 mostrarElectrodomesticos();
-                System.out.println("Seleccione el alimento que desea eliminar: ");
+                System.out.println("Seleccione el electrodomestico que desea eliminar: ");
                 opcion=sc.nextInt();
                 band=false;
-                for (Compra compra: compras) {
-                    if (compra.getProductos().contains(productosElectrodomestico.get(opcion - 1))) {
-                        band = true;
-                        break;
-                    }
+                for (int i=0;i<compras.size();i++) {
+                    for (int j=0;j<compras.get(i).getProductos().size();j++)
+                        if(compras.get(i).getProductos().get(j).getProducto().equals(productosElectrodomestico.get(opcion-1))){
+                            band = true;
+                            break;
+                        }
                 }
                 if (band){
                     System.out.println("No se puede eliminar este producto");
@@ -289,34 +314,45 @@ public class Tienda {
         do {
             System.out.println("1)Alimentos\n2)Limpieza\n3)Belleza\n4)Electrodomesticos\n5)Salir");
             opcion=sc.nextInt();
-            switch (opcion){
+            switch (opcion) {
                 case 1:
                     System.out.println("**Alimentos**");
                     mostrarAlimentos();
                     System.out.println("Seleccione el producto que desea agregar: ");
-                    opcion=sc.nextInt();
+                    opcion = sc.nextInt();
                     System.out.println("Seleccione la cantidad de articulos: ");
-                    cant=sc.nextInt();
-                    if(cant<=productosAlimento.get(opcion-1).getStock())
-                        productos.add(new Carrito(productosAlimento.get(opcion-1),cant));
+                    cant = sc.nextInt();
+                    if (cant <= productosAlimento.get(opcion - 1).getStock()) {
+                        productos.add(new Carrito(productosAlimento.get(opcion - 1), cant));
+                        System.out.println("Producto agregado");
+                    }
+                    else
+                        System.out.println("No se puede comprar esa cantidad");
                     break;
                 case 2:
                     System.out.println("**Limpieza**");
                     mostrarLimpieza();
                     System.out.println("Seleccione el producto que desea agregar: ");
-                    opcion=sc.nextInt();
-                    cant=sc.nextInt();
-                    if(cant<=productosAlimento.get(opcion-1).getStock())
-                        productos.add(new Carrito(productosLimpieza.get(opcion-1),cant));
+                    opcion = sc.nextInt();
+                    cant = sc.nextInt();
+                    if (cant <= productosAlimento.get(opcion - 1).getStock()) {
+                        productos.add(new Carrito(productosLimpieza.get(opcion - 1), cant));
+                        System.out.println("Producto agregado");
+                    } else
+                        System.out.println("No se puede comprar esa cantidad");
                     break;
                 case 3:
                     System.out.println("**Belleza**");
                     mostrarBelleza();
                     System.out.println("Seleccione el producto que desea agregar: ");
-                    opcion=sc.nextInt();
-                    cant=sc.nextInt();
-                    if(cant<=productosAlimento.get(opcion-1).getStock())
-                        productos.add(new Carrito(productosBelleza.get(opcion-1),cant));
+                    opcion = sc.nextInt();
+                    cant = sc.nextInt();
+                    if (cant <= productosAlimento.get(opcion - 1).getStock()){
+                        productos.add(new Carrito(productosBelleza.get(opcion - 1), cant));
+                        System.out.println("Producto agregado");
+                    }
+                    else
+                        System.out.println("No se puede comprar esa cantidad");
                     break;
                 case 4:
                     System.out.println("**Electrodomesticos**");
@@ -324,8 +360,12 @@ public class Tienda {
                     System.out.println("Seleccione el producto que desea agregar: ");
                     opcion=sc.nextInt();
                     cant=sc.nextInt();
-                    if(cant<=productosAlimento.get(opcion-1).getStock())
+                    if(cant<=productosAlimento.get(opcion-1).getStock()){
                         productos.add(new Carrito(productosElectrodomestico.get(opcion-1),cant));
+                        System.out.println("Producto agregado");
+                    }
+                    else
+                        System.out.println("No se puede comprar esa cantidad");
                     break;
                 default:
                     band=false;
@@ -347,6 +387,118 @@ public class Tienda {
                 i++;
             }
         }
+    }
+    public void anadirStock(){
+        int cant;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Seleccione el tipo de producto: ");
+        System.out.println("1)Alimentos\n2)Limpieza\n3)Belleza\n4)Electrodomesticos\n5)Salir");
+        int opcion= sc.nextInt();
+        switch (opcion){
+            case 1:
+                mostrarAlimentos();
+                System.out.println("Ingrese el numero: ");
+                opcion=sc.nextInt();
+                System.out.println("Ingrese la cantidad a agregar: ");
+                cant=sc.nextInt();
+                productosAlimento.get(opcion-1).AgregarStock(cant);
+                System.out.println("Cantidad agregada con exito");
+                break;
+            case 2:
+                mostrarLimpieza();
+                System.out.println("Ingrese el numero: ");
+                opcion=sc.nextInt();
+                System.out.println("Ingrese la cantidad a agregar: ");
+                cant=sc.nextInt();
+                productosLimpieza.get(opcion-1).AgregarStock(cant);
+                System.out.println("Cantidad agregada con exito");
+                break;
+            case 3:
+                mostrarBelleza();
+                System.out.println("Ingrese el numero: ");
+                opcion=sc.nextInt();
+                System.out.println("Ingrese la cantidad a agregar: ");
+                cant=sc.nextInt();
+                productosBelleza.get(opcion-1).AgregarStock(cant);
+                System.out.println("Cantidad agregada con exito");
+                break;
+            case 4:
+                mostrarElectrodomesticos();
+                System.out.println("Ingrese el numero: ");
+                opcion=sc.nextInt();
+                System.out.println("Ingrese la cantidad a agregar: ");
+                cant=sc.nextInt();
+                productosElectrodomestico.get(opcion-1).AgregarStock(cant);
+                System.out.println("Cantidad agregada con exito");
+                break;
+            default:
+                break;
+        }
+    }
+    public void eliminarStock(){
+        int cant;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Seleccione el tipo de producto: ");
+        System.out.println("1)Alimentos\n2)Limpieza\n3)Belleza\n4)Electrodomesticos\n5)Salir");
+        int opcion= sc.nextInt();
+        switch (opcion){
+            case 1:
+                mostrarAlimentos();
+                System.out.println("Ingrese el numero: ");
+                opcion=sc.nextInt();
+                System.out.println("Ingrese la cantidad a agregar: ");
+                cant=sc.nextInt();
+                if(validarStock(productosAlimento.get(opcion-1),cant)){
+                    productosAlimento.get(opcion - 1).quitarDeStock(cant);
+                    System.out.println("Cantidad eliminada con exito");
+                }
+                else
+                    System.out.println("No se puede eliminar esa cantidad");
+                break;
+            case 2:
+                mostrarLimpieza();
+                System.out.println("Ingrese el numero: ");
+                opcion=sc.nextInt();
+                System.out.println("Ingrese la cantidad a agregar: ");
+                cant=sc.nextInt();
+                if(validarStock(productosLimpieza.get(opcion-1),cant)){
+                    productosLimpieza.get(opcion - 1).quitarDeStock(cant);
+                    System.out.println("Cantidad eliminada con exito");
+                }
+                else
+                    System.out.println("No se puede eliminar esa cantidad");
+            case 3:
+                mostrarBelleza();
+                System.out.println("Ingrese el numero: ");
+                opcion=sc.nextInt();
+                System.out.println("Ingrese la cantidad a agregar: ");
+                cant=sc.nextInt();
+                if(validarStock(productosBelleza.get(opcion-1),cant)){
+                    productosBelleza.get(opcion - 1).quitarDeStock(cant);
+                    System.out.println("Cantidad eliminada con exito");
+                }
+                else
+                    System.out.println("No se puede eliminar esa cantidad");
+                break;
+            case 4:
+                mostrarElectrodomesticos();
+                System.out.println("Ingrese el numero: ");
+                opcion=sc.nextInt();
+                System.out.println("Ingrese la cantidad a agregar: ");
+                cant=sc.nextInt();
+                if(validarStock(productosElectrodomestico.get(opcion-1),cant)){
+                    productosElectrodomestico.get(opcion - 1).quitarDeStock(cant);
+                    System.out.println("Cantidad eliminada con exito");
+                }
+                else
+                    System.out.println("No se puede eliminar esa cantidad");
+                break;
+            default:
+                break;
+        }
+    }
+    public Boolean validarStock(Producto producto,int cantidad){
+        return producto.getStock() >= cantidad;
     }
     public void tester(){
         Alimento alimento1=new Alimento("Papa",15.5,"15/03/24",15,"31/03/24");

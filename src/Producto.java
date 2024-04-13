@@ -26,5 +26,11 @@ public class Producto {
         return String.format("Nombre: %s, precio %f, fecha de importación: %s, stock: %d",
                 nombre, precio, fechaImportacion, stock);
     }
+    public void AgregarStock(int cantidad){
+        stock+=cantidad;
+    }
+    public void quitarDeStock(int cantidad){
+        stock-=cantidad;
+    }
 }
 

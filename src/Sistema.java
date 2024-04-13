@@ -82,10 +82,10 @@ public class Sistema {
                     tienda.eliminarCliente();
                     break;
                 case 7:
-                    //tienda.anadirStock();
+                    tienda.anadirStock();
                     break;
                 case 8:
-                    //tienda.eliminarStock();
+                    tienda.eliminarStock();
                     break;
                 case 9:
                     tienda.realizarCompra();
