@@ -280,10 +280,12 @@ public class Tienda {
         Scanner sc=new Scanner(System.in);
         System.out.println("**Realizar Compra**");
         System.out.println("Seleccione el cliente");
+        mostrarClientes();
         int opcion= sc.nextInt();
         Cliente cliente=clientes.get(opcion-1);
         boolean band=true;
-        ArrayList<Producto> productos=new ArrayList<Producto>();
+        ArrayList<Carrito> productos=new ArrayList<>();
+        int cant=0;
         do {
             System.out.println("1)Alimentos\n2)Limpieza\n3)Belleza\n4)Electrodomesticos\n5)Salir");
             opcion=sc.nextInt();
@@ -293,28 +295,37 @@ public class Tienda {
                     mostrarAlimentos();
                     System.out.println("Seleccione el producto que desea agregar: ");
                     opcion=sc.nextInt();
-                    productos.add(productosAlimento.get(opcion-1));
+                    System.out.println("Seleccione la cantidad de articulos: ");
+                    cant=sc.nextInt();
+                    if(cant<=productosAlimento.get(opcion-1).getStock())
+                        productos.add(new Carrito(productosAlimento.get(opcion-1),cant));
                     break;
                 case 2:
                     System.out.println("**Limpieza**");
                     mostrarLimpieza();
                     System.out.println("Seleccione el producto que desea agregar: ");
                     opcion=sc.nextInt();
-                    productos.add(productosLimpieza.get(opcion-1));
+                    cant=sc.nextInt();
+                    if(cant<=productosAlimento.get(opcion-1).getStock())
+                        productos.add(new Carrito(productosLimpieza.get(opcion-1),cant));
                     break;
                 case 3:
                     System.out.println("**Belleza**");
                     mostrarBelleza();
                     System.out.println("Seleccione el producto que desea agregar: ");
                     opcion=sc.nextInt();
-                    productos.add(productosBelleza.get(opcion-1));
+                    cant=sc.nextInt();
+                    if(cant<=productosAlimento.get(opcion-1).getStock())
+                        productos.add(new Carrito(productosBelleza.get(opcion-1),cant));
                     break;
                 case 4:
                     System.out.println("**Electrodomesticos**");
                     mostrarElectrodomesticos();
                     System.out.println("Seleccione el producto que desea agregar: ");
                     opcion=sc.nextInt();
-                    productos.add(productosElectrodomestico.get(opcion-1));
+                    cant=sc.nextInt();
+                    if(cant<=productosAlimento.get(opcion-1).getStock())
+                        productos.add(new Carrito(productosElectrodomestico.get(opcion-1),cant));
                     break;
                 default:
                     band=false;
@@ -323,7 +334,27 @@ public class Tienda {
         }while(band);
         LocalDate fechaCompra=LocalDate.now();
         compras.add(new Compra(cliente,productos,fechaCompra));
+        System.out.println("Compra realizada con exito");
     }
-
+    public void mostrarCompras(){
+        if(compras.isEmpty())
+            System.out.println("No hay compras registradas");
+        else{
+            int i = 1;
+            for (Compra compra:compras){
+                System.out.println("Compra: "+i);
+                compra.mostrarCompra();
+                i++;
+            }
+        }
+    }
+    public void tester(){
+        Alimento alimento1=new Alimento("Papa",15.5,"15/03/24",15,"31/03/24");
+        Alimento alimento2=new Alimento("Melon",2,"15/03/24",20,"31/03/24");
+        Cliente cliente=new Cliente("Andrea","duran","Morelia",LocalDate.now());
+        clientes.add(cliente);
+        productosAlimento.add(alimento1);
+        productosAlimento.add(alimento2);
+    }
 }
 

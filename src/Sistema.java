@@ -1,30 +1,29 @@
 import java.util.Scanner;
 
 public class Sistema {
-    private final String CONTRASENA_SEGURA = "H1/m";
+    private final String CONTRASENA_SEGURA = "1234";
     private Scanner scanner = new Scanner(System.in);
     private Tienda tienda = new Tienda();
 
     public void ejecutarPrograma() {
         boolean esContrasenaValida = false;
-
+        tienda.tester();
         do {
             System.out.println("\n*** BIENVENIDO ***");
             System.out.println("Ingresa la contraseña");
             String contrasena = scanner.nextLine();
-
             if (contrasena.equals(CONTRASENA_SEGURA)) {
                 esContrasenaValida = true;
                 ejecutarMenuSistema();
             } else {
-                System.out.println("\nContraserna incorrecta, intenta de nuevo");
+                System.out.println("\nContraseña incorrecta, intenta de nuevo");
             }
         } while (!esContrasenaValida);
     }
 
     private void ejecutarMenuSistema() {
-        int opcion = 0;
-
+        int opcion;
+        Scanner sc=new Scanner(System.in);
         do {
             System.out.println("\n** BIENVENIDO AL SISTEMA **");
             System.out.println("1. Registrar Producto");
@@ -38,7 +37,7 @@ public class Sistema {
             System.out.println("9. Realizar compra");
             System.out.println("10. Ver compras");
             System.out.println("11. Salir");
-
+            opcion=sc.nextInt();
             switch (opcion) {
                 case 1:
                     System.out.println("\nSeleccionaste Registrar Producto");
@@ -83,10 +82,10 @@ public class Sistema {
                     tienda.eliminarCliente();
                     break;
                 case 7:
-                    tienda.anadirStock();
+                    //tienda.anadirStock();
                     break;
                 case 8:
-                    tienda.eliminarStock();
+                    //tienda.eliminarStock();
                     break;
                 case 9:
                     tienda.realizarCompra();

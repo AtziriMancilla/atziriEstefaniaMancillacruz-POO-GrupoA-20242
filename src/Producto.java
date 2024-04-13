@@ -5,7 +5,15 @@ public class Producto {
     private double precio;
     private String fechaImportacion;
     private int stock;
-
+    public double getPrecio() {
+        return precio;
+    }
+    public int getStock() {
+        return stock;
+    }
+    public void comprarProducto(int cant) {
+        stock-=cant;
+    }
     public Producto(String nombre, double precio, String fechaImportacion, int stock) {
         this.numeroSerie = CANTIDAD_PRODUCTOS++;
         this.nombre = nombre;
@@ -14,7 +22,6 @@ public class Producto {
         this.stock = stock;
         CANTIDAD_PRODUCTOS++;
     }
-
     protected String obtenerInformacion() {
         return String.format("Nombre: %s, precio %f, fecha de importación: %s, stock: %d",
                 nombre, precio, fechaImportacion, stock);

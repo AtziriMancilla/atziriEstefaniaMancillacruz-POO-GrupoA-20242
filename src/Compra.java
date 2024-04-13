@@ -3,10 +3,9 @@ import java.util.ArrayList;
 
 public class Compra {
     Cliente cliente;
-    ArrayList<Producto> productos;
-    double total;
+    ArrayList<Carrito> productos;
     LocalDate fechaCompra;
-    public Compra(Cliente cliente,ArrayList<Producto> productos,LocalDate fechaCompra){
+    public Compra(Cliente cliente,ArrayList<Carrito> productos,LocalDate fechaCompra){
         this.cliente=cliente;
         this.productos=productos;
         this.fechaCompra=fechaCompra;
@@ -14,21 +13,33 @@ public class Compra {
     public Cliente getCliente() {
         return cliente;
     }
-    public double getTotal() {
-        return total;
-    }
+
     public LocalDate getFechaCompra() {
         return fechaCompra;
     }
-    public ArrayList<Producto> getProductos() {
+    public ArrayList<Carrito> getProductos() {
+
         return productos;
     }
-    public String mostrarProductos(){
-        for(Producto producto:productos) {
-            return String.format("");
+    public void mostrarProductos(){
+        int i=1;
+        System.out.println("\tCant\tProducto");
+        for (Carrito carrito:productos){
+            System.out.println("\t"+carrito.getCantidad()+"\t"+carrito.getProducto().obtenerInformacion());
+            i++;
         }
     }
-    public String mostrarCompra(){
-        return String.format("Cliente: %s\nProductos: %s",cliente.mostrarInfoConFecha(),);
+    public double totalCompra(){
+        double total=0;
+        for (Carrito carrito:productos){
+            total+=carrito.subtotal();
+        }
+        return total;
+    }
+    public void mostrarCompra() {
+        System.out.println("Cliente: " + cliente.mostrarInfoConFecha());
+        System.out.println("Fecha de compra: " + fechaCompra);
+        mostrarProductos();
+        System.out.println("total: "+totalCompra());
     }
 }
