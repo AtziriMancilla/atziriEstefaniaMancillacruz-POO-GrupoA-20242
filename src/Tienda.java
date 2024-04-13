@@ -334,6 +334,7 @@ public class Tienda {
                     mostrarLimpieza();
                     System.out.println("Seleccione el producto que desea agregar: ");
                     opcion = sc.nextInt();
+                    System.out.println("Ingrese la cantidad: ");
                     cant = sc.nextInt();
                     if (cant <= productosAlimento.get(opcion - 1).getStock()) {
                         productos.add(new Carrito(productosLimpieza.get(opcion - 1), cant));
@@ -346,6 +347,7 @@ public class Tienda {
                     mostrarBelleza();
                     System.out.println("Seleccione el producto que desea agregar: ");
                     opcion = sc.nextInt();
+                    System.out.println("Ingrese la cantidad: ");
                     cant = sc.nextInt();
                     if (cant <= productosAlimento.get(opcion - 1).getStock()){
                         productos.add(new Carrito(productosBelleza.get(opcion - 1), cant));
@@ -359,6 +361,7 @@ public class Tienda {
                     mostrarElectrodomesticos();
                     System.out.println("Seleccione el producto que desea agregar: ");
                     opcion=sc.nextInt();
+                    System.out.println("Ingrese la cantidad: ");
                     cant=sc.nextInt();
                     if(cant<=productosAlimento.get(opcion-1).getStock()){
                         productos.add(new Carrito(productosElectrodomestico.get(opcion-1),cant));
@@ -503,10 +506,24 @@ public class Tienda {
     public void tester(){
         Alimento alimento1=new Alimento("Papa",15.5,"15/03/24",15,"31/03/24");
         Alimento alimento2=new Alimento("Melon",2,"15/03/24",20,"31/03/24");
-        Cliente cliente=new Cliente("Andrea","duran","Morelia",LocalDate.now());
-        clientes.add(cliente);
+        Electrodomestico electrodomestico1=new Electrodomestico("Licuadora",580,"31/01/24",15,"oster",4.5);
+        Electrodomestico electrodomestico2=new Electrodomestico("Air Fryer",1000,"31/01/24",35,"Gourmia",4.5);
+        Limpieza limpieza1=new Limpieza("Axion",45,"31/01/24",15,"axion");
+        Limpieza limpieza2=new Limpieza("Pinol",25,"31/01/24",22,"Pinol");
+        Belleza belleza1=new Belleza("Retinol",800,"31/01/24",35,"La roche posay",30);
+        Belleza belleza2=new Belleza("Limpiador facial",300,"31/01/24",35,"La roche posay",300);
+        Cliente cliente1=new Cliente("Andrea","Duran","Morelia",LocalDate.now());
+        Cliente cliente2=new Cliente("Alejandro","Montejano","Morelia",LocalDate.now());
+        clientes.add(cliente1);
+        clientes.add(cliente2);
         productosAlimento.add(alimento1);
         productosAlimento.add(alimento2);
+        productosLimpieza.add(limpieza1);
+        productosLimpieza.add(limpieza2);
+        productosBelleza.add(belleza1);
+        productosBelleza.add(belleza2);
+        productosElectrodomestico.add(electrodomestico1);
+        productosElectrodomestico.add(electrodomestico2);
     }
 }
 

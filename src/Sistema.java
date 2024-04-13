@@ -24,8 +24,8 @@ public class Sistema {
     private void ejecutarMenuSistema() {
         int opcion;
         Scanner sc=new Scanner(System.in);
+        System.out.println("\n** BIENVENIDO AL SISTEMA **");
         do {
-            System.out.println("\n** BIENVENIDO AL SISTEMA **");
             System.out.println("1. Registrar Producto");
             System.out.println("2. Registrar Cliente");
             System.out.println("3. Mostrar Productos");
@@ -37,6 +37,7 @@ public class Sistema {
             System.out.println("9. Realizar compra");
             System.out.println("10. Ver compras");
             System.out.println("11. Salir");
+            System.out.println("Ingrese una opcion: ");
             opcion=sc.nextInt();
             switch (opcion) {
                 case 1:
