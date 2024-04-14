@@ -18,5 +18,4 @@ public class Carrito {
     public void comprar(int cantidad){
         producto.comprarProducto(cantidad);
     }
-
 }

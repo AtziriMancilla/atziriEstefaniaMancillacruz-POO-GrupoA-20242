@@ -350,8 +350,8 @@ public class Tienda {
                     System.out.println("Ingrese la cantidad: ");
                     cant = sc.nextInt();
                     if (cant <= productosAlimento.get(opcion - 1).getStock()){
-                        productos.add(new Carrito(productosBelleza.get(opcion - 1), cant));
-                        System.out.println("Producto agregado");
+                            productos.add(new Carrito(productosBelleza.get(opcion - 1), cant));
+                            System.out.println("Producto agregado");
                     }
                     else
                         System.out.println("No se puede comprar esa cantidad");
