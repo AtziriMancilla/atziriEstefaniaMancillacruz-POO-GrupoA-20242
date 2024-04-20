@@ -7,8 +7,8 @@ public class Trabajador extends Usuario{
     private String areaTrabajo;
     private LocalDate fechaContrato;
     private double sueldo;
-    public Trabajador(String nombre, String apellido,  LocalDate fechaNacimiento, String nombreUsuario, String contrasena, String horario, String areaTrabajo, double sueldo){
-        super(nombre, apellido, Rol.TRABAJADOR, fechaNacimiento, nombreUsuario, contrasena );
+    public Trabajador(String nombre, String apellido, String numeroTelefono,String nombreUsuario, String contrasena, String horario, String areaTrabajo, double sueldo){
+        super(nombre, apellido, Rol.TRABAJADOR, numeroTelefono, nombreUsuario, contrasena );
         this.horario = horario;
         this.areaTrabajo = areaTrabajo;
         this.fechaContrato = LocalDate.now();

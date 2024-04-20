@@ -7,8 +7,8 @@ public class Gerente extends Usuario{
     private int personasASuCargo;
     private LocalDate fechaAscenso;
     private double sueldo;
-    public Gerente(String nombre, String apellido, LocalDate fechaNacimiento, String nombreUsuario, String contrasena, String equipoQueCoordina, int personasASuCargo){
-        super(nombre, apellido, Rol.GERENTE, fechaNacimiento, nombreUsuario, contrasena);
+    public Gerente(String nombre, String apellido, String numeroTelefono, String nombreUsuario, String contrasena, String equipoQueCoordina, int personasASuCargo){
+        super(nombre, apellido, Rol.GERENTE, numeroTelefono, nombreUsuario, contrasena);
         this.equipoQueCoordina= equipoQueCoordina;
         this.personasASuCargo= personasASuCargo;
         this.fechaAscenso =LocalDate.now();

@@ -8,36 +8,41 @@ public class Usuario {
     private int id;
     private String nombre;
     private String apellido;
-    private Rol rol; //enum de tipo rol
-    private LocalDate fechaNacimiento;
-
+    private Rol rol;
+    private String numeroTelefono;
     private String nombreUsuario;
-
     private String contrasena;
 
-
-    public Usuario(String nombre, String apellido, Rol rol,LocalDate fechaNacimiento,String nombreUsuario,String contrasena) {
+    public Usuario(String nombre, String apellido, Rol rol, String numeroTelefono, String nombreUsuario, String contrasena) {
         this.id = CANTIDAD_USUARIOS;
         this.nombre = nombre;
         this.apellido = apellido;
         this.rol = rol;
-        this.fechaNacimiento=fechaNacimiento;
-        this.nombreUsuario=nombreUsuario;
-        this.contrasena=contrasena;
+        //this.fechaNacimiento = fechaNacimiento;
+        this.contrasena = contrasena;
+        this.nombreUsuario = nombreUsuario;
+        this.numeroTelefono = numeroTelefono;
         CANTIDAD_USUARIOS++;
     }
-    public String getNombreUsuario() {
-        return nombreUsuario;
+
+    @Override
+    public String toString() {
+        return String.format("Id: %d, Nombre completo: %s %s, rol: %s, numero teléfono: %s", id, nombre, apellido, rol, numeroTelefono);
     }
-    public String getContrasena() {
-        return contrasena;
-    }
+
     public Rol getRol() {
         return rol;
     }
-    @Override
-    public String toString(){
-        return String.format("Id: %d, Nombre completo: %s %s, rol: %s, fecha nacimiento: %s", id, nombre, apellido, rol,fechaNacimiento);
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public String getNumeroTelefono() {
+        return numeroTelefono;
     }
 }
-

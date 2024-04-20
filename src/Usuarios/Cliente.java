@@ -5,8 +5,8 @@ import java.time.LocalDate;
 public class Cliente extends Usuario {
     private LocalDate fechaRegistro;
 
-    public Cliente(String nombre, String apellido, LocalDate fechaNacimiento, String nombreUsuario, String contrasena){
-        super(nombre, apellido, Rol.CLIENTE, fechaNacimiento, nombreUsuario, contrasena );
+    public Cliente(String nombre, String apellido,String numeroTelefono, String nombreUsuario, String contrasena){
+        super(nombre, apellido, Rol.CLIENTE,numeroTelefono, nombreUsuario, contrasena );
         this.fechaRegistro=LocalDate.now();//trae la fecha actual y la asigna a este atributo
 
     }
