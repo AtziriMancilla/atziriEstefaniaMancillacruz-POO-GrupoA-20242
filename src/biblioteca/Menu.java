@@ -114,9 +114,9 @@ public class Menu {
             System.out.println("3. Cerrar sesión");
 
             switch (opcion) {
-                case 1:
+                case 1: biblioteca.registrarCliente();
                     break;
-                case 2:
+                case 2: biblioteca.mostrarClientes();
                     break;
                 case 3:
                     UsuarioEnSesion.getInstancia().cerrarSesion();

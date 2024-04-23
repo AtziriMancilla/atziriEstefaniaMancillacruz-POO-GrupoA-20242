@@ -33,6 +33,21 @@ public class Usuario {
     public Rol getRol() {
         return rol;
     }
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+    public void setNumeroTelefono(String numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
+    }
 
     public String getNombreUsuario() {
         return nombreUsuario;
@@ -44,5 +59,8 @@ public class Usuario {
 
     public String getNumeroTelefono() {
         return numeroTelefono;
+    }
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 }
