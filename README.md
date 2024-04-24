@@ -1,1 +1,1 @@
-Rama develop
+Este Programa consta de 5 clases, la clase padre llamada shape que es un clase abstracta de la que heredan las clases: círculo, triángulo, cuadrado y rectángulo, en cada una se sobreescriben los métodos área y perímetro.
