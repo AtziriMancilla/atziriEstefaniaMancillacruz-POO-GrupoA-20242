@@ -1,4 +1,4 @@
-public class Square extends Shape{
+public class Square implements Shape{
     double width;
     public Square(double width){
         this.width = width;

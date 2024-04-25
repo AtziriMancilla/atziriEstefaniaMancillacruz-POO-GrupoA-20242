@@ -1,4 +1,4 @@
-public class Triangle extends Shape{
+public class Triangle implements Shape{
     double side1;
     double side2;
     double side3;
