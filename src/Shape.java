@@ -1,4 +1,4 @@
 public interface Shape {
-    public double perimeter();
-    public double area();
+    double perimeter();
+    double area();
 }
