@@ -1,1 +1,1 @@
-Rama develop
+El proyecto tiene una interfaz llamada shape que se implementa en las clases: triángulo, cuadrado, rectángulo y círculo.
