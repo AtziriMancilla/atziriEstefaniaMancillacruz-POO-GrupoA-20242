@@ -12,13 +12,14 @@ public class Usuario {
     private String numeroTelefono;
     private String nombreUsuario;
     private String contrasena;
+    private LocalDate fechaNacimiento;
 
-    public Usuario(String nombre, String apellido, Rol rol, String numeroTelefono, String nombreUsuario, String contrasena) {
+    public Usuario(String nombre, String apellido, LocalDate fechaNacimiento, Rol rol, String numeroTelefono, String nombreUsuario, String contrasena) {
         this.id = CANTIDAD_USUARIOS;
         this.nombre = nombre;
         this.apellido = apellido;
         this.rol = rol;
-        //this.fechaNacimiento = fechaNacimiento;
+        this.fechaNacimiento = fechaNacimiento;
         this.contrasena = contrasena;
         this.nombreUsuario = nombreUsuario;
         this.numeroTelefono = numeroTelefono;
@@ -27,7 +28,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return String.format("Id: %d, Nombre completo: %s %s, rol: %s, numero teléfono: %s", id, nombre, apellido, rol, numeroTelefono);
+        return String.format("Id: %d, Nombre completo: %s %s, rol: %s, numero teléfono: %s, fecha de nacimiento: %s", id, nombre, apellido, rol, numeroTelefono,fechaNacimiento);
     }
 
     public Rol getRol() {

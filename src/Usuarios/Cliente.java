@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class Cliente extends Usuario {
     private LocalDate fechaRegistro;
 
-    public Cliente(String nombre, String apellido,String numeroTelefono, String nombreUsuario, String contrasena){
-        super(nombre, apellido, Rol.CLIENTE,numeroTelefono, nombreUsuario, contrasena );
+    public Cliente(String nombre, String apellido,LocalDate fechaNacimiento, String numeroTelefono, String nombreUsuario, String contrasena){
+        super(nombre, apellido,fechaNacimiento, Rol.CLIENTE,numeroTelefono, nombreUsuario, contrasena );
         this.fechaRegistro=LocalDate.now();//trae la fecha actual y la asigna a este atributo
 
     }
@@ -36,7 +36,9 @@ public class Cliente extends Usuario {
         String telefono= datoscComun.get(2);
         String nombreUsuario= datoscComun.get(3);
         String contrasena= datoscComun.get(4);
-        Cliente cliente=new Cliente(nombre,apellido,telefono,nombreUsuario,contrasena);
+        System.out.println("Ingresa la fecha de nacimiento");
+        LocalDate fechaNacimiento=DatosComun.obtenerFechaNacimiento();
+        Cliente cliente=new Cliente(nombre,apellido,fechaNacimiento,telefono,nombreUsuario,contrasena);
         if(!Biblioteca.usuarios.containsKey(Rol.CLIENTE)){
             Biblioteca.usuarios.put(Rol.CLIENTE,new ArrayList<Usuario>());
         }

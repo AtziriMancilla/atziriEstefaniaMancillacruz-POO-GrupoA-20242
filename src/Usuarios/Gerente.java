@@ -12,8 +12,8 @@ public class Gerente extends Usuario{
     private int personasASuCargo;
     private LocalDate fechaAscenso;
     private double sueldo;
-    public Gerente(String nombre, String apellido, String numeroTelefono, String nombreUsuario, String contrasena, String equipoQueCoordina, int personasASuCargo){
-        super(nombre, apellido, Rol.GERENTE, numeroTelefono, nombreUsuario, contrasena);
+    public Gerente(String nombre, String apellido, String numeroTelefono,LocalDate fechaNacimiento, String nombreUsuario, String contrasena, String equipoQueCoordina, int personasASuCargo){
+        super(nombre, apellido,fechaNacimiento,Rol.GERENTE, numeroTelefono, nombreUsuario, contrasena);
         this.equipoQueCoordina= equipoQueCoordina;
         this.personasASuCargo= personasASuCargo;
         this.fechaAscenso =LocalDate.now();
@@ -51,11 +51,13 @@ public class Gerente extends Usuario{
         String telefono = datoscComun.get(2);
         String nombreUsuario = datoscComun.get(3);
         String contrasena = datoscComun.get(4);
+        System.out.println("Ingresa la fecha de nacimiento");
+        LocalDate fechaNacimiento=DatosComun.obtenerFechaNacimiento();
         System.out.println("Ingrese nombre del equipo que coordina");
         String equipo = sc.nextLine();
         System.out.println("Ingrese el numero de personas a su cargo");
         int personasASuCargo = sc.nextInt();
-        Gerente gerente = new Gerente(nombre, apellido, telefono, nombreUsuario, contrasena, equipo, personasASuCargo);
+        Gerente gerente = new Gerente(nombre, apellido, telefono, fechaNacimiento, nombreUsuario, contrasena, equipo, personasASuCargo);
         if (Biblioteca.usuarios.containsKey(Rol.GERENTE)) {
             Biblioteca.usuarios.put(Rol.GERENTE, new ArrayList<Usuario>());
         }

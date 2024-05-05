@@ -13,8 +13,8 @@ public class Trabajador extends Usuario{
     private String areaTrabajo;
     private LocalDate fechaContrato;
     private double sueldo;
-    public Trabajador(String nombre, String apellido, String numeroTelefono,String nombreUsuario, String contrasena, String horario, String areaTrabajo, double sueldo){
-        super(nombre, apellido, Rol.TRABAJADOR, numeroTelefono, nombreUsuario, contrasena );
+    public Trabajador(String nombre, String apellido, LocalDate fechaNacimiento, String numeroTelefono,String nombreUsuario, String contrasena, String horario, String areaTrabajo, double sueldo){
+        super(nombre, apellido,fechaNacimiento, Rol.TRABAJADOR, numeroTelefono, nombreUsuario, contrasena );
         this.horario = horario;
         this.areaTrabajo = areaTrabajo;
         this.fechaContrato = LocalDate.now();
@@ -54,13 +54,15 @@ public class Trabajador extends Usuario{
         String telefono = datoscComun.get(2);
         String nombreUsuario = datoscComun.get(3);
         String contrasena = datoscComun.get(4);
+        System.out.println("Ingresa la fecha de nacimiento");
+        LocalDate fechaNacimiento=DatosComun.obtenerFechaNacimiento();
         System.out.println("Ingrese el horario de trabajo");
         String horarioTrabajo = sc.nextLine();
         System.out.println("Ingrese el area de trabajo");
         String areaTrabajo = sc.nextLine();
         System.out.println("Ingrese el sueldo");
         double sueldo = sc.nextDouble();
-        Trabajador trabajador = new Trabajador(nombre, apellido, telefono, nombreUsuario, contrasena, horarioTrabajo, areaTrabajo, sueldo);
+        Trabajador trabajador = new Trabajador(nombre, apellido, fechaNacimiento,telefono, nombreUsuario, contrasena, horarioTrabajo, areaTrabajo, sueldo);
         if (!Biblioteca.usuarios.containsKey(Rol.TRABAJADOR)) {
             Biblioteca.usuarios.put(Rol.TRABAJADOR, new ArrayList<Usuario>());
         }

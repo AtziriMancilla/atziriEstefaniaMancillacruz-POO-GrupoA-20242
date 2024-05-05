@@ -13,11 +13,11 @@ public class Biblioteca {
     public static final HashMap<Rol, ArrayList<Usuario>> usuarios = new HashMap<>();
 
     public Biblioteca() {
-        Trabajador trabajador = new Trabajador("Andrea", "Duran", "4437277815", "canelita", "1234", "09:00-12:00", "Libreria centro", 30000);
+        //Trabajador trabajador = new Trabajador("Andrea", "Duran", "4437277815", "canelita", "1234", "09:00-12:00", "Libreria centro", 30000);
         usuarios.put(Rol.TRABAJADOR, new ArrayList<Usuario>());
         usuarios.put(Rol.GERENTE, new ArrayList<Usuario>());
         usuarios.put(Rol.CLIENTE, new ArrayList<Usuario>());
-        usuarios.get(Rol.TRABAJADOR).add(trabajador);
+        //usuarios.get(Rol.TRABAJADOR).add(trabajador);
     }
 
     public Usuario verificarInicioSesion(String usuario, String contrasena) {
