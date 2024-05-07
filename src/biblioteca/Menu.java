@@ -4,6 +4,7 @@ import Usuarios.Trabajador;
 import Usuarios.Usuario;
 import Usuarios.utils.UsuarioEnSesion;
 import java.time.LocalDate;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static Usuarios.utils.Rol.*;
@@ -82,7 +83,8 @@ public class Menu {
             System.out.println("Selecciona una opción para continuar");
             System.out.println("1. Registrar Cliente");
             System.out.println("2. Mostrar Clientes");
-            System.out.println("3. Cerrar sesión");
+            System.out.println("3. Registrar Libro");
+            System.out.println("4. Cerrar sesión");
 
             opcion = scanner.nextInt();
 
@@ -94,11 +96,49 @@ public class Menu {
                     biblioteca.mostrarClientes();
                     break;
                 case 3:
+                    registrarLibroMenu();
+                    break;
+                case 4:
                     UsuarioEnSesion.getInstancia().cerrarSesion();
                     inciarSesion();
                     break;
             }
         } while(opcion != 3);
+    }
+    private void registrarLibroMenu(){
+        Scanner sc=new Scanner(System.in);
+        int opcion=0;
+        boolean esDatoValido=false;
+        do {
+            System.out.println("Elegiste registrar un libro");
+            System.out.println("Selecciona una opción: ");
+            System.out.println("1. Terror\n2. Comedia\n3. Accion\n4. Regresar al menu principal");
+            while(!esDatoValido) {
+                try {
+                    opcion = sc.nextInt();
+                    if (opcion < 1 || opcion > 4) {
+                        throw new InputMismatchException();
+                    }
+                    esDatoValido=true;
+                } catch (InputMismatchException error) {
+                    System.out.println("Opción no valida. Intenta de nuevo");
+                }finally {//se ejecuta independientemente de si entra al catch o no
+                    scanner.nextLine();
+                }
+            }
+            esDatoValido=false;
+            switch (opcion){
+                case 1:
+                    System.out.println("Registrar libro terror");
+                    break;
+                case 2:
+                    System.out.println("Registrar libro comedia");
+                    break;
+                case 3:
+                    System.out.println("Registrar libro accion");
+                    break;
+            }
+        }while (opcion!=4);
     }
 
     private void mostrarMenuGerente() {

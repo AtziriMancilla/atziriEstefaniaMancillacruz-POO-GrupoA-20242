@@ -33,5 +33,12 @@ public class Main {
 //        */
 //        String fechaFormateada =fechaC.format(pattern);
 //        System.out.println(fechaFormateada);
+        // tarea investigar 10 tipos de excepciones con ejemplos.
+        try{
+            int division= 12/0;
+            System.out.println(division);
+        }catch (ArithmeticException error){
+            System.out.println("Ocurrio un error");
+        }
     }
 }
