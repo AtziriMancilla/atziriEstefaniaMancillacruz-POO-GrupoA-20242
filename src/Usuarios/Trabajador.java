@@ -13,8 +13,8 @@ public class Trabajador extends Usuario{
     private String areaTrabajo;
     private LocalDate fechaContrato;
     private double sueldo;
-    public Trabajador(String nombre, String apellido, LocalDate fechaNacimiento, String numeroTelefono,String nombreUsuario, String contrasena, String horario, String areaTrabajo, double sueldo){
-        super(nombre, apellido,fechaNacimiento, Rol.TRABAJADOR, numeroTelefono, nombreUsuario, contrasena );
+    public Trabajador(String nombre, String apellidoPaterno, String apellidoMaterno, LocalDate fechaNacimiento, String numeroTelefono,String nombreUsuario, String contrasena, String horario, String areaTrabajo, double sueldo){
+        super(nombre, apellidoPaterno,apellidoMaterno,fechaNacimiento, Rol.TRABAJADOR, numeroTelefono, nombreUsuario, contrasena );
         this.horario = horario;
         this.areaTrabajo = areaTrabajo;
         this.fechaContrato = LocalDate.now();
@@ -50,10 +50,11 @@ public class Trabajador extends Usuario{
         Scanner sc = new Scanner(System.in);
         ArrayList<String> datoscComun = DatosComun.obtenerDatosComun(Rol.TRABAJADOR);
         String nombre = datoscComun.get(0);
-        String apellido = datoscComun.get(1);
-        String telefono = datoscComun.get(2);
-        String nombreUsuario = datoscComun.get(3);
-        String contrasena = datoscComun.get(4);
+        String apellidoPaterno = datoscComun.get(1);
+        String apellidoMaterno = datoscComun.get(2);
+        String telefono = datoscComun.get(3);
+        String nombreUsuario = datoscComun.get(4);
+        String contrasena = datoscComun.get(5);
         System.out.println("Ingresa la fecha de nacimiento");
         LocalDate fechaNacimiento=DatosComun.obtenerFechaNacimiento();
         System.out.println("Ingrese el horario de trabajo");
@@ -62,7 +63,7 @@ public class Trabajador extends Usuario{
         String areaTrabajo = sc.nextLine();
         System.out.println("Ingrese el sueldo");
         double sueldo = sc.nextDouble();
-        Trabajador trabajador = new Trabajador(nombre, apellido, fechaNacimiento,telefono, nombreUsuario, contrasena, horarioTrabajo, areaTrabajo, sueldo);
+        Trabajador trabajador = new Trabajador(nombre, apellidoPaterno,apellidoMaterno,fechaNacimiento,telefono, nombreUsuario, contrasena, horarioTrabajo, areaTrabajo, sueldo);
         if (!Biblioteca.usuarios.containsKey(Rol.TRABAJADOR)) {
             Biblioteca.usuarios.put(Rol.TRABAJADOR, new ArrayList<Usuario>());
         }
@@ -106,7 +107,7 @@ public class Trabajador extends Usuario{
         System.out.println("Selecciona el trabajador: ");
         int numTrabajador=sc.nextInt();
         System.out.println("¿Qué información deseas editar?");
-        System.out.println("1) Nombre\n2) Apellido\n3) Teléfono\n4) Nombre usuario\n5) Horario\n6) Área de trabajo\n7) Sueldo");
+        System.out.println("1) Nombre\n2) Apellido paterno\n3) Apellido Materno\n4) Teléfono\n5) Nombre usuario\n6) Horario\n7) Área de trabajo\n8) Sueldo");
         int opcion=sc.nextInt();
         Trabajador trabajador=(Trabajador) Biblioteca.usuarios.get(Rol.TRABAJADOR).get(numTrabajador-1);
         switch (opcion){
@@ -117,36 +118,42 @@ public class Trabajador extends Usuario{
                 System.out.println("Nombre modificado");
                 break;
             case 2:
-                System.out.println("Ingrese el nuevo apellido: ");
-                trabajador.setApellido(sc.nextLine());
+                System.out.println("Ingrese el nuevo apellido paterno: ");
+                trabajador.setApellidoPaterno(sc.nextLine());
                 Biblioteca.usuarios.get(Rol.TRABAJADOR).set(numTrabajador-1,trabajador);
                 System.out.println("Apellido modificado");
                 break;
             case 3:
+                System.out.println("Ingrese el nuevo apellido materno: ");
+                trabajador.setApellidoMaterno(sc.nextLine());
+                Biblioteca.usuarios.get(Rol.TRABAJADOR).set(numTrabajador-1,trabajador);
+                System.out.println("Apellido modificado");
+                break;
+            case 4:
                 System.out.println("Ingrese el nuevo telefono: ");
                 trabajador.setNumeroTelefono(sc.nextLine());
                 Biblioteca.usuarios.get(Rol.TRABAJADOR).set(numTrabajador-1,trabajador);
                 System.out.println("Telefono modificado");
                 break;
-            case 4:
+            case 5:
                 System.out.println("Ingrese el nuevo nombre de usuario: ");
                 trabajador.setNombreUsuario(sc.nextLine());
                 Biblioteca.usuarios.get(Rol.TRABAJADOR).set(numTrabajador-1,trabajador);
                 System.out.println("Nombre de usuario modificado");
                 break;
-            case 5:
+            case 6:
                 System.out.println("Ingrese el nuevo horario: ");
                 trabajador.setHorario(sc.nextLine());
                 Biblioteca.usuarios.get(Rol.TRABAJADOR).set(numTrabajador-1,trabajador);
                 System.out.println("Equipo al que coordina modificado");
                 break;
-            case 6:
-                System.out.println("Ingrese ela nueva area de trabajo: ");
+            case 7:
+                System.out.println("Ingrese la nueva area de trabajo: ");
                 trabajador.setAreaTrabajo(sc.nextLine());
                 Biblioteca.usuarios.get(Rol.TRABAJADOR).set(numTrabajador-1,trabajador);
                 System.out.println("Numero de personas a su cargo modificado");
                 break;
-            case 7:
+            case 8:
                 System.out.println("Ingrese el nuevo sueldo: ");
                 trabajador.setSueldo(sc.nextDouble());
                 Biblioteca.usuarios.get(Rol.TRABAJADOR).set(numTrabajador-1,trabajador);

@@ -12,8 +12,8 @@ public class Gerente extends Usuario{
     private int personasASuCargo;
     private LocalDate fechaAscenso;
     private double sueldo;
-    public Gerente(String nombre, String apellido, String numeroTelefono,LocalDate fechaNacimiento, String nombreUsuario, String contrasena, String equipoQueCoordina, int personasASuCargo){
-        super(nombre, apellido,fechaNacimiento,Rol.GERENTE, numeroTelefono, nombreUsuario, contrasena);
+    public Gerente(String nombre, String apellidoPaterno,String apellidoMaterno, String numeroTelefono,LocalDate fechaNacimiento, String nombreUsuario, String contrasena, String equipoQueCoordina, int personasASuCargo){
+        super(nombre, apellidoPaterno,apellidoMaterno, fechaNacimiento,Rol.GERENTE, numeroTelefono, nombreUsuario, contrasena);
         this.equipoQueCoordina= equipoQueCoordina;
         this.personasASuCargo= personasASuCargo;
         this.fechaAscenso =LocalDate.now();
@@ -47,17 +47,18 @@ public class Gerente extends Usuario{
         Scanner sc = new Scanner(System.in);
         ArrayList<String> datoscComun = DatosComun.obtenerDatosComun(Rol.GERENTE);
         String nombre = datoscComun.get(0);
-        String apellido = datoscComun.get(1);
-        String telefono = datoscComun.get(2);
-        String nombreUsuario = datoscComun.get(3);
-        String contrasena = datoscComun.get(4);
+        String apellidoPaterno = datoscComun.get(1);
+        String apellidoMaterno = datoscComun.get(2)
+        String telefono = datoscComun.get(3);
+        String nombreUsuario = datoscComun.get(4);
+        String contrasena = datoscComun.get(5);
         System.out.println("Ingresa la fecha de nacimiento");
         LocalDate fechaNacimiento=DatosComun.obtenerFechaNacimiento();
         System.out.println("Ingrese nombre del equipo que coordina");
         String equipo = sc.nextLine();
         System.out.println("Ingrese el numero de personas a su cargo");
         int personasASuCargo = sc.nextInt();
-        Gerente gerente = new Gerente(nombre, apellido, telefono, fechaNacimiento, nombreUsuario, contrasena, equipo, personasASuCargo);
+        Gerente gerente = new Gerente(nombre, apellidoPaterno,apellidoMaterno, telefono, fechaNacimiento, nombreUsuario, contrasena, equipo, personasASuCargo);
         if (Biblioteca.usuarios.containsKey(Rol.GERENTE)) {
             Biblioteca.usuarios.put(Rol.GERENTE, new ArrayList<Usuario>());
         }
@@ -112,36 +113,42 @@ public class Gerente extends Usuario{
                 System.out.println("Nombre modificado");
                 break;
             case 2:
-                System.out.println("Ingrese el nuevo apellido: ");
-                gerente.setApellido(sc.nextLine());
+                System.out.println("Ingrese el nuevo apellido paterno: ");
+                gerente.setApellidoPaterno(sc.nextLine());
                 Biblioteca.usuarios.get(Rol.GERENTE).set(numGerente-1,gerente);
                 System.out.println("Apellido modificado");
                 break;
             case 3:
+                System.out.println("Ingrese el nuevo apellido materno: ");
+                gerente.setApellidoPaterno(sc.nextLine());
+                Biblioteca.usuarios.get(Rol.GERENTE).set(numGerente-1,gerente);
+                System.out.println("Apellido modificado");
+                break;
+            case 4:
                 System.out.println("Ingrese el nuevo telefono: ");
                 gerente.setNumeroTelefono(sc.nextLine());
                 Biblioteca.usuarios.get(Rol.GERENTE).set(numGerente-1,gerente);
                 System.out.println("Telefono modificado");
                 break;
-            case 4:
+            case 5:
                 System.out.println("Ingrese el nuevo nombre de usuario: ");
                 gerente.setNombreUsuario(sc.nextLine());
                 Biblioteca.usuarios.get(Rol.GERENTE).set(numGerente-1,gerente);
                 System.out.println("Nombre de usuario modificado");
                 break;
-            case 5:
+            case 6:
                 System.out.println("Ingrese el nuevo equipo que coordina: ");
                 gerente.setEquipoQueCoordina(sc.nextLine());
                 Biblioteca.usuarios.get(Rol.GERENTE).set(numGerente-1,gerente);
                 System.out.println("Equipo al que coordina modificado");
                 break;
-            case 6:
+            case 7:
                 System.out.println("Ingrese el nuevo numero de personas a su cargo: ");
                 gerente.setPersonasASuCargo(sc.nextInt());
                 Biblioteca.usuarios.get(Rol.GERENTE).set(numGerente-1,gerente);
                 System.out.println("Numero de personas a su cargo modificado");
                 break;
-            case 7:
+            case 8:
                 System.out.println("Ingrese el nuevo sueldo: ");
                 gerente.setSueldo(sc.nextDouble());
                 Biblioteca.usuarios.get(Rol.GERENTE).set(numGerente-1,gerente);

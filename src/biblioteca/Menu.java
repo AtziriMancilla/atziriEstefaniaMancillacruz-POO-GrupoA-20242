@@ -3,6 +3,12 @@ import Usuarios.Gerente;
 import Usuarios.Trabajador;
 import Usuarios.Usuario;
 import Usuarios.utils.UsuarioEnSesion;
+import biblioteca.utils.DatosComun;
+import libros.Libro;
+import libros.LibroAccion;
+import libros.LibroComedia;
+import libros.LibroTerror;
+
 import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -64,6 +70,7 @@ public class Menu {
 
             switch (opcion) {
                 case 1:
+                    Libro.mostrarTodosLosLibros();
                     break;
                 case 5:
                     UsuarioEnSesion.getInstancia().cerrarSesion();
@@ -84,7 +91,8 @@ public class Menu {
             System.out.println("1. Registrar Cliente");
             System.out.println("2. Mostrar Clientes");
             System.out.println("3. Registrar Libro");
-            System.out.println("4. Cerrar sesión");
+            System.out.println("4. Filtrar libro");
+            System.out.println("5. Cerrar sesion");
 
             opcion = scanner.nextInt();
 
@@ -99,6 +107,9 @@ public class Menu {
                     registrarLibroMenu();
                     break;
                 case 4:
+                    //filtro
+                    break;
+                case 5:
                     UsuarioEnSesion.getInstancia().cerrarSesion();
                     inciarSesion();
                     break;
@@ -129,13 +140,13 @@ public class Menu {
             esDatoValido=false;
             switch (opcion){
                 case 1:
-                    System.out.println("Registrar libro terror");
+                    LibroTerror.registrarLibro();
                     break;
                 case 2:
-                    System.out.println("Registrar libro comedia");
+                    LibroComedia.registrarLibro();
                     break;
                 case 3:
-                    System.out.println("Registrar libro accion");
+                    LibroAccion.registrarLibro();
                     break;
             }
         }while (opcion!=4);
@@ -143,16 +154,14 @@ public class Menu {
 
     private void mostrarMenuGerente() {
         Scanner scanner = new Scanner(System.in);
-
-        int opcion = 0;
-
+        int opcion;
         do {
             System.out.println("\nMenú Gerente");
             System.out.println("Selecciona una opción para continuar");
             System.out.println("1. Registrar Cliente");
             System.out.println("2. Mostrar Clientes");
             System.out.println("3. Cerrar sesión");
-
+            opcion= DatosComun.pedirNumero();
             switch (opcion) {
                 case 1: biblioteca.registrarCliente();
                     break;
@@ -161,6 +170,9 @@ public class Menu {
                 case 3:
                     UsuarioEnSesion.getInstancia().cerrarSesion();
                     inciarSesion();
+                    break;
+                default:
+                    System.out.println("Opción no valida");
                     break;
             }
         } while(opcion != 3);

@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class Cliente extends Usuario {
     private LocalDate fechaRegistro;
 
-    public Cliente(String nombre, String apellido,LocalDate fechaNacimiento, String numeroTelefono, String nombreUsuario, String contrasena){
-        super(nombre, apellido,fechaNacimiento, Rol.CLIENTE,numeroTelefono, nombreUsuario, contrasena );
+    public Cliente(String nombre, String apellidoPaterno,String apellidoMaterno, LocalDate fechaNacimiento, String numeroTelefono, String nombreUsuario, String contrasena){
+        super(nombre, apellidoPaterno,apellidoMaterno, fechaNacimiento, Rol.CLIENTE,numeroTelefono, nombreUsuario, contrasena );
         this.fechaRegistro=LocalDate.now();//trae la fecha actual y la asigna a este atributo
 
     }
@@ -32,13 +32,14 @@ public class Cliente extends Usuario {
     public static void registrarCliente() {
         ArrayList<String> datoscComun= DatosComun.obtenerDatosComun(Rol.CLIENTE);
         String nombre=datoscComun.get(0);
-        String apellido=datoscComun.get(1);
+        String apellidoPaterno = datoscComun.get(1);
+        String apellidoMaterno = datoscComun.get(2);
         String telefono= datoscComun.get(2);
         String nombreUsuario= datoscComun.get(3);
         String contrasena= datoscComun.get(4);
         System.out.println("Ingresa la fecha de nacimiento");
         LocalDate fechaNacimiento=DatosComun.obtenerFechaNacimiento();
-        Cliente cliente=new Cliente(nombre,apellido,fechaNacimiento,telefono,nombreUsuario,contrasena);
+        Cliente cliente=new Cliente(nombre,apellidoPaterno,apellidoMaterno, fechaNacimiento,telefono,nombreUsuario,contrasena);
         if(!Biblioteca.usuarios.containsKey(Rol.CLIENTE)){
             Biblioteca.usuarios.put(Rol.CLIENTE,new ArrayList<Usuario>());
         }
@@ -93,24 +94,30 @@ public class Cliente extends Usuario {
                 System.out.println("Nombre modificado");
                 break;
             case 2:
-                System.out.println("Ingrese el nuevo apellido: ");
-                cliente.setApellido(sc.nextLine());
+                System.out.println("Ingrese el nuevo apellido paterno: ");
+                cliente.setApellidoPaterno(sc.nextLine());
                 Biblioteca.usuarios.get(Rol.CLIENTE).set(numCliente-1,cliente);
                 System.out.println("Apellido modificado");
                 break;
             case 3:
+                System.out.println("Ingrese el nuevo apellido materno: ");
+                cliente.setApellidoMaterno(sc.nextLine());
+                Biblioteca.usuarios.get(Rol.CLIENTE).set(numCliente-1,cliente);
+                System.out.println("Apellido modificado");
+                break;
+            case 4:
                 System.out.println("Ingrese el nuevo telefono: ");
                 cliente.setNumeroTelefono(sc.nextLine());
                 Biblioteca.usuarios.get(Rol.CLIENTE).set(numCliente-1,cliente);
                 System.out.println("Telefono modificado");
                 break;
-            case 4:
+            case 5:
                 System.out.println("Ingrese el nuevo nombre de usuario: ");
                 cliente.setNombreUsuario(sc.nextLine());
                 Biblioteca.usuarios.get(Rol.CLIENTE).set(numCliente-1,cliente);
                 System.out.println("Nombre de usuario modificado");
                 break;
-            case 5:
+            case 6:
                 System.out.println("Ingrese la nueva contraseña: ");
                 cliente.setContrasena(sc.nextLine());
                 Biblioteca.usuarios.get(Rol.CLIENTE).set(numCliente-1,cliente);
