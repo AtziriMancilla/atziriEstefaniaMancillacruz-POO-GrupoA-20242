@@ -1,9 +1,11 @@
 package libros;
 
 import biblioteca.Biblioteca;
+import biblioteca.utils.DatosComun;
 import libros.constants.Genero;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 //primera letra del autor
 //genero
@@ -32,6 +34,8 @@ public abstract class Libro {
 
     protected abstract void filtrarPorPrecio(double precio);
     protected abstract void filtrarPorAutor(String autor);
+    protected abstract void filtrarPorEditorial(String editorial);
+    protected abstract void filtrarPorNombre(String nombre);
     public int getStock() {
         return stock;
     }
@@ -41,6 +45,13 @@ public abstract class Libro {
     public String getAutor(){
         return autor;
     }
+    public String getEditorial(){
+        return editorial;
+    }
+    public String getNombre(){
+        return nombre;
+    }
+
     //tarea hacer registro del libro de terror y ponerle validaciones a los campos y hacerlo en librps de comedia y accion y que quede bien en el menu
     public String toString(){
         return String.format("Id: %d, Nombre: %s, Autor: %s, Editorial: %s, Fecha publicacion: %s, Genero: %s, Precio: %f, Stock: %d",id,nombre,autor,editorial,fechaDePublicacion,genero,precio,stock);
@@ -53,8 +64,5 @@ public abstract class Libro {
         LibroComedia.mostrarLibrosComedia();
         System.out.println("Libros accion: ");
         LibroAccion.mostrarLibrosAccion();
-    }
-    public static void filtrarLibros(){
-
     }
 }

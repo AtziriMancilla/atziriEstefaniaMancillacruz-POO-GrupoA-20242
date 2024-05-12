@@ -118,4 +118,18 @@ public class LibroComedia extends Libro{
                 .filter(libro -> Objects.equals(libro.getAutor(), autor))
                 .forEach(libro -> System.out.println(libro.toString()));
     }
+    @Override
+    protected void filtrarPorEditorial(String editorial) {
+        Biblioteca.libros.get(Genero.COMEDIA)
+                .stream()
+                .filter(libro -> Objects.equals(libro.getEditorial(), editorial))
+                .forEach(libro -> System.out.println(libro.toString()));
+    }
+    @Override
+    protected void filtrarPorNombre(String nombre) {
+        Biblioteca.libros.get(Genero.COMEDIA)
+                .stream()
+                .filter(libro -> Objects.equals(libro.getNombre(), nombre))
+                .forEach(libro -> System.out.println(libro.toString()));
+    }
 }
