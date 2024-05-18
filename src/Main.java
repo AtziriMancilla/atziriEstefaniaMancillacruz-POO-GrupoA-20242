@@ -1,44 +1,28 @@
+import Usuarios.Estudiante;
 import Usuarios.Gerente;
 import Usuarios.Trabajador;
 import Usuarios.Usuario;
 import biblioteca.Biblioteca;
 import biblioteca.Menu;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-/*incluir la fecha de nacimiento en la clase usuario, gerente, cliente y trabajador
-* implementar los metodos de entrada y salida oara gerente y trabajador
-* (2 cuartillas)investigar qué es una libreria(externa), para que se usa, min 2 ejemplos de ellas programadas y como se instalan*/
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Main {
     public static void main(String[] args) {
-        Menu menu=new Menu();
-        menu.inciarSesion();
-//        LocalDate fecha=LocalDate.now();
-//        LocalDate f=LocalDate.of(2000,10,5);
-//        System.out.println(fecha);
-//        System.out.println(f);
-//        LocalTime hora=LocalTime.now();
-//        System.out.println(hora);
-//        LocalDateTime fechaC=LocalDateTime.now();
-//        System.out.println(fechaC);
-//        DateTimeFormatter pattern=DateTimeFormatter.ofPattern("dd/MM/YY hh:mm");
-//        /*
-//        YYYY- year
-//        MM-MONTH
-//        dd- day
-//        mm- minutes
-//        ss-seconds
-//        */
-//        String fechaFormateada =fechaC.format(pattern);
-//        System.out.println(fechaFormateada);
-        // tarea investigar 10 tipos de excepciones con ejemplos.
-        try{
-            int division= 12/0;
-            System.out.println(division);
-        }catch (ArithmeticException error){
-            System.out.println("Ocurrio un error");
-        }
+        Biblioteca.inicializarHashmap();
+        Biblioteca.testerUsuarios();
+        Biblioteca.testerLibros();
+        Biblioteca.jsonUsuarios();
+        Biblioteca.jsonLibros();
     }
 }

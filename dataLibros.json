@@ -1,0 +1,68 @@
+{
+  "TERROR": [
+    {
+      "subgenero": "CRIMEN",
+      "id": 5,
+      "nombre": "Nombre libro terror ",
+      "autor": "Autor de terror",
+      "editorial": "Editorial terrorifica",
+      "genero": "TERROR",
+      "precio": 546.0,
+      "stock": 20
+    },
+    {
+      "subgenero": "PSICOLOGICO",
+      "id": 6,
+      "nombre": "Nombre libro terror 2 ",
+      "autor": "Autor de terror psicológico",
+      "editorial": "Editorial malvada",
+      "genero": "TERROR",
+      "precio": 345.6,
+      "stock": 15
+    }
+  ],
+  "COMEDIA": [
+    {
+      "subgenero": "PARODIA",
+      "id": 1,
+      "nombre": "Libro chistoso",
+      "autor": "Autor que hace chistes",
+      "editorial": "Editorial chistosa",
+      "genero": "COMEDIA",
+      "precio": 436.68,
+      "stock": 22
+    },
+    {
+      "subgenero": "ROMANTICA",
+      "id": 2,
+      "nombre": "Libro romantico de risa ",
+      "autor": "Autor romantico",
+      "editorial": "Editorial amorosa",
+      "genero": "COMEDIA",
+      "precio": 386.0,
+      "stock": 30
+    }
+  ],
+  "ACCION": [
+    {
+      "subgenero": "AVENTURA",
+      "id": 3,
+      "nombre": "Libro de aventuras",
+      "autor": "Autor aventurero",
+      "editorial": "Aventura editorial",
+      "genero": "COMEDIA",
+      "precio": 450.5,
+      "stock": 75
+    },
+    {
+      "subgenero": "POLICIACA",
+      "id": 4,
+      "nombre": "La ley y el orden ",
+      "autor": "Autor policiaco",
+      "editorial": "Ley editorial",
+      "genero": "COMEDIA",
+      "precio": 220.0,
+      "stock": 65
+    }
+  ]
+}

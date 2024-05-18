@@ -11,8 +11,8 @@ import java.util.*;
 
 public class LibroAccion extends Libro{
     private SubgeneroAccion subgenero;
-    public LibroAccion(String nombre, String autor, String editorial, LocalDate fechaDePublicacion, double precio, int stock, SubgeneroAccion subgenero) {
-        super(nombre, autor, editorial, fechaDePublicacion, Genero.COMEDIA, precio, stock);
+    public LibroAccion(String nombre, String autor, String editorial, double precio, int stock, SubgeneroAccion subgenero) {
+        super(nombre, autor, editorial, Genero.COMEDIA, precio, stock);
         this.subgenero = subgenero;
     }
     public SubgeneroAccion getSubgenero() {
@@ -26,7 +26,7 @@ public class LibroAccion extends Libro{
         String nombre = datosComun.get(0);
         String autor = datosComun.get(1);
         String editorial = datosComun.get(2);
-        LocalDate fechaPublicacion = LocalDate.parse(datosComun.get(3));
+        //LocalDate fechaPublicacion = LocalDate.parse(datosComun.get(3));
         double precio = Double.parseDouble(datosComun.get(4));
         int stock = Integer.parseInt(datosComun.get(5));
 
@@ -44,7 +44,7 @@ public class LibroAccion extends Libro{
             subgeneroInput = SubgeneroAccion.POLICIACA;
         }
 
-        LibroAccion libroAccion = new LibroAccion(nombre, autor, editorial, fechaPublicacion, precio, stock, subgeneroInput);
+        LibroAccion libroAccion = new LibroAccion(nombre, autor, editorial, precio, stock, subgeneroInput);
     }
     @Override
     public String toString(){

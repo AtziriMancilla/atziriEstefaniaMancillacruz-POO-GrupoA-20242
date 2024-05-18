@@ -9,24 +9,24 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Cliente extends Usuario {
-    private LocalDate fechaRegistro;
+    //private LocalDate fechaRegistro;
 
-    public Cliente(String nombre, String apellidoPaterno,String apellidoMaterno, LocalDate fechaNacimiento, String numeroTelefono, String nombreUsuario, String contrasena){
-        super(nombre, apellidoPaterno,apellidoMaterno, fechaNacimiento, Rol.CLIENTE,numeroTelefono, nombreUsuario, contrasena );
-        this.fechaRegistro=LocalDate.now();//trae la fecha actual y la asigna a este atributo
+    public Cliente(String nombre, String apellidoPaterno,String apellidoMaterno, String numeroTelefono, String nombreUsuario, String contrasena){
+        super(nombre, apellidoPaterno,apellidoMaterno, Rol.CLIENTE,numeroTelefono, nombreUsuario, contrasena );
+        //this.fechaRegistro=LocalDate.now();//trae la fecha actual y la asigna a este atributo
 
     }
 
-    public LocalDate getFechaRegistro() {
-        return fechaRegistro;
-    }
-
-    public void mostrarInfo (){
-        System.out.println(fechaRegistro);
-    }
+//    public LocalDate getFechaRegistro() {
+//        return fechaRegistro;
+//    }
+//
+//    public void mostrarInfo (){
+//        System.out.println(fechaRegistro);
+//    }
     @Override
     public String toString(){
-        return String.format("%s, fecha de registro: %s", super.toString(), fechaRegistro);
+        return String.format("%s, fecha de registro: ", super.toString());
     }
 
     public static void registrarCliente() {
@@ -38,8 +38,8 @@ public class Cliente extends Usuario {
         String nombreUsuario= datoscComun.get(3);
         String contrasena= datoscComun.get(4);
         System.out.println("Ingresa la fecha de nacimiento");
-        LocalDate fechaNacimiento=DatosComun.obtenerFechaNacimiento();
-        Cliente cliente=new Cliente(nombre,apellidoPaterno,apellidoMaterno, fechaNacimiento,telefono,nombreUsuario,contrasena);
+        //LocalDate fechaNacimiento=DatosComun.obtenerFechaNacimiento();
+        Cliente cliente=new Cliente(nombre,apellidoPaterno,apellidoMaterno,telefono,nombreUsuario,contrasena);
         if(!Biblioteca.usuarios.containsKey(Rol.CLIENTE)){
             Biblioteca.usuarios.put(Rol.CLIENTE,new ArrayList<Usuario>());
         }

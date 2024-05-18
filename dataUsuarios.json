@@ -1,0 +1,93 @@
+{
+  "GERENTE": [
+    {
+      "equipoQueCoordina": "05-06",
+      "personasASuCargo": 150,
+      "sueldo": 0.0,
+      "id": 5,
+      "nombre": "Jafet",
+      "apellidoPaterno": "Santoyo",
+      "apellidoMaterno": "Benitez",
+      "rol": "GERENTE",
+      "numeroTelefono": "43486049505",
+      "nombreUsuario": "Jafi",
+      "contrasena": "sdgs"
+    },
+    {
+      "equipoQueCoordina": "05-06",
+      "personasASuCargo": 250,
+      "sueldo": 0.0,
+      "id": 6,
+      "nombre": "Mariana",
+      "apellidoPaterno": "Paz",
+      "apellidoMaterno": "Alfaro",
+      "rol": "GERENTE",
+      "numeroTelefono": "4342674756868",
+      "nombreUsuario": "Amoconta",
+      "contrasena": "contachido"
+    }
+  ],
+  "CLIENTE": [
+    {
+      "id": 3,
+      "nombre": "Andrea",
+      "apellidoPaterno": "Duran",
+      "apellidoMaterno": "Martinez",
+      "rol": "CLIENTE",
+      "numeroTelefono": "434267405939",
+      "nombreUsuario": "Canelita",
+      "contrasena": "paysito"
+    },
+    {
+      "id": 4,
+      "nombre": "Edgar",
+      "apellidoPaterno": "Lopez",
+      "apellidoMaterno": "Vazquez",
+      "rol": "CLIENTE",
+      "numeroTelefono": "434268968308603",
+      "nombreUsuario": "Gari",
+      "contrasena": "1234"
+    }
+  ],
+  "TRABAJADOR": [
+    {
+      "horario": "09:00-12:00",
+      "areaTrabajo": "Libreria centro",
+      "sueldo": 30000.0,
+      "id": 7,
+      "nombre": "Andrea",
+      "apellidoPaterno": "Duran",
+      "apellidoMaterno": "Martinez",
+      "rol": "TRABAJADOR",
+      "numeroTelefono": "44378039433",
+      "nombreUsuario": "genshin",
+      "contrasena": "1234"
+    },
+    {
+      "horario": "05-06",
+      "areaTrabajo": "Almacen",
+      "sueldo": 56789.0,
+      "id": 1,
+      "nombre": "Sianya",
+      "apellidoPaterno": "Garcia",
+      "apellidoMaterno": "Medina",
+      "rol": "TRABAJADOR",
+      "numeroTelefono": "4342674748585",
+      "nombreUsuario": "Amoconta",
+      "contrasena": "contachido"
+    },
+    {
+      "horario": "05-06",
+      "areaTrabajo": "Mostrador",
+      "sueldo": 56789.0,
+      "id": 2,
+      "nombre": "Alejandro",
+      "apellidoPaterno": "Montejano",
+      "apellidoMaterno": "Dias",
+      "rol": "TRABAJADOR",
+      "numeroTelefono": "434269809605",
+      "nombreUsuario": "Elpro",
+      "contrasena": "dr profesor"
+    }
+  ]
+}

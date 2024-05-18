@@ -11,9 +11,9 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class LibroComedia extends Libro{
-    private SubgeneroComedia subgenero;
-    public LibroComedia(String nombre, String autor, String editorial, LocalDate fechaDePublicacion, double precio, int stock, SubgeneroComedia subgenero) {
-        super(nombre, autor, editorial, fechaDePublicacion, Genero.COMEDIA, precio, stock);
+    private final SubgeneroComedia subgenero;
+    public LibroComedia(String nombre, String autor, String editorial, double precio, int stock, SubgeneroComedia subgenero) {
+        super(nombre, autor, editorial, Genero.COMEDIA, precio, stock);
         this.subgenero = subgenero;
     }
     public SubgeneroComedia getSubgenero() {
@@ -45,7 +45,7 @@ public class LibroComedia extends Libro{
             subgeneroInput = SubgeneroComedia.PARODIA;
         }
 
-        LibroComedia libroComedia = new LibroComedia(nombre, autor, editorial, fechaPublicacion, precio, stock, subgeneroInput);
+        LibroComedia libroComedia = new LibroComedia(nombre, autor, editorial, precio, stock, subgeneroInput);
     }
     @Override
     public String toString(){

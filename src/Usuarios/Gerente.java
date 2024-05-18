@@ -3,20 +3,20 @@ import Usuarios.utils.Rol;
 import biblioteca.Biblioteca;
 import biblioteca.utils.DatosComun;
 
-import java.time.LocalDate;
+//import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Gerente extends Usuario{
     private String equipoQueCoordina;
     private int personasASuCargo;
-    private LocalDate fechaAscenso;
+    //private LocalDate fechaAscenso;
     private double sueldo;
-    public Gerente(String nombre, String apellidoPaterno,String apellidoMaterno, String numeroTelefono,LocalDate fechaNacimiento, String nombreUsuario, String contrasena, String equipoQueCoordina, int personasASuCargo){
-        super(nombre, apellidoPaterno,apellidoMaterno, fechaNacimiento,Rol.GERENTE, numeroTelefono, nombreUsuario, contrasena);
+    public Gerente(String nombre, String apellidoPaterno,String apellidoMaterno, String numeroTelefono, String nombreUsuario, String contrasena, String equipoQueCoordina, int personasASuCargo){
+        super(nombre, apellidoPaterno,apellidoMaterno,Rol.GERENTE, numeroTelefono, nombreUsuario, contrasena);
         this.equipoQueCoordina= equipoQueCoordina;
         this.personasASuCargo= personasASuCargo;
-        this.fechaAscenso =LocalDate.now();
+        //this.fechaAscenso =LocalDate.now();
     }
     public int getPersonasASuCargo() {
         return personasASuCargo;
@@ -41,24 +41,24 @@ public class Gerente extends Usuario{
     }
     @Override
     public String toString(){
-        return String.format("%s, fecha de ascenso: %s, equipo que coordina: %s, personas a su cargo: %d, sueldo %f", super.toString(), fechaAscenso, equipoQueCoordina, personasASuCargo,sueldo);
+        return String.format("%s, fecha de ascenso:, equipo que coordina: %s, personas a su cargo: %d, sueldo %f", super.toString(), equipoQueCoordina, personasASuCargo,sueldo);
     }
     public static void registrarGerente() {
         Scanner sc = new Scanner(System.in);
         ArrayList<String> datoscComun = DatosComun.obtenerDatosComun(Rol.GERENTE);
         String nombre = datoscComun.get(0);
         String apellidoPaterno = datoscComun.get(1);
-        String apellidoMaterno = datoscComun.get(2)
+        String apellidoMaterno = datoscComun.get(2);
         String telefono = datoscComun.get(3);
         String nombreUsuario = datoscComun.get(4);
         String contrasena = datoscComun.get(5);
         System.out.println("Ingresa la fecha de nacimiento");
-        LocalDate fechaNacimiento=DatosComun.obtenerFechaNacimiento();
+        //LocalDate fechaNacimiento=DatosComun.obtenerFechaNacimiento();
         System.out.println("Ingrese nombre del equipo que coordina");
         String equipo = sc.nextLine();
         System.out.println("Ingrese el numero de personas a su cargo");
         int personasASuCargo = sc.nextInt();
-        Gerente gerente = new Gerente(nombre, apellidoPaterno,apellidoMaterno, telefono, fechaNacimiento, nombreUsuario, contrasena, equipo, personasASuCargo);
+        Gerente gerente = new Gerente(nombre, apellidoPaterno,apellidoMaterno, telefono, nombreUsuario, contrasena, equipo, personasASuCargo);
         if (Biblioteca.usuarios.containsKey(Rol.GERENTE)) {
             Biblioteca.usuarios.put(Rol.GERENTE, new ArrayList<Usuario>());
         }

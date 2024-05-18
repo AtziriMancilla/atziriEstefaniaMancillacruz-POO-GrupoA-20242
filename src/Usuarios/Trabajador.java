@@ -4,20 +4,20 @@ import Usuarios.utils.Rol;
 import biblioteca.Biblioteca;
 import biblioteca.utils.DatosComun;
 
-import java.time.LocalDate;
+//import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Trabajador extends Usuario{
     private String horario;
     private String areaTrabajo;
-    private LocalDate fechaContrato;
+//    private LocalDate fechaContrato;
     private double sueldo;
-    public Trabajador(String nombre, String apellidoPaterno, String apellidoMaterno, LocalDate fechaNacimiento, String numeroTelefono,String nombreUsuario, String contrasena, String horario, String areaTrabajo, double sueldo){
-        super(nombre, apellidoPaterno,apellidoMaterno,fechaNacimiento, Rol.TRABAJADOR, numeroTelefono, nombreUsuario, contrasena );
+    public Trabajador(String nombre, String apellidoPaterno, String apellidoMaterno, String numeroTelefono,String nombreUsuario, String contrasena, String horario, String areaTrabajo, double sueldo){
+        super(nombre, apellidoPaterno,apellidoMaterno, Rol.TRABAJADOR, numeroTelefono, nombreUsuario, contrasena );
         this.horario = horario;
         this.areaTrabajo = areaTrabajo;
-        this.fechaContrato = LocalDate.now();
+//        this.fechaContrato = LocalDate.now();
         this.sueldo = sueldo;
     }
     public String getHorario() {
@@ -44,7 +44,7 @@ public class Trabajador extends Usuario{
 
     @Override
     public String toString (){
-        return String.format("%s, horario: %s, area de trabajo: %s, fecha de contrato: %s, sueldo: %f", super.toString(), horario, areaTrabajo, fechaContrato, sueldo);
+        return String.format("%s, horario: %s, area de trabajo: %s, fecha de contrato: , sueldo: %f", super.toString(), horario, areaTrabajo, sueldo);
     }
     public static void registrarTrabajador() {
         Scanner sc = new Scanner(System.in);
@@ -56,14 +56,14 @@ public class Trabajador extends Usuario{
         String nombreUsuario = datoscComun.get(4);
         String contrasena = datoscComun.get(5);
         System.out.println("Ingresa la fecha de nacimiento");
-        LocalDate fechaNacimiento=DatosComun.obtenerFechaNacimiento();
+        //LocalDate fechaNacimiento=DatosComun.obtenerFechaNacimiento();
         System.out.println("Ingrese el horario de trabajo");
         String horarioTrabajo = sc.nextLine();
         System.out.println("Ingrese el area de trabajo");
         String areaTrabajo = sc.nextLine();
         System.out.println("Ingrese el sueldo");
         double sueldo = sc.nextDouble();
-        Trabajador trabajador = new Trabajador(nombre, apellidoPaterno,apellidoMaterno,fechaNacimiento,telefono, nombreUsuario, contrasena, horarioTrabajo, areaTrabajo, sueldo);
+        Trabajador trabajador = new Trabajador(nombre, apellidoPaterno,apellidoMaterno,telefono, nombreUsuario, contrasena, horarioTrabajo, areaTrabajo, sueldo);
         if (!Biblioteca.usuarios.containsKey(Rol.TRABAJADOR)) {
             Biblioteca.usuarios.put(Rol.TRABAJADOR, new ArrayList<Usuario>());
         }

@@ -13,8 +13,8 @@ import java.util.*;
 
 public class LibroTerror extends Libro {
     private SubgeneroTerror subgenero;
-    public LibroTerror(String nombre, String autor, String editorial, LocalDate fechaDePublicacion, double precio, int stock, SubgeneroTerror subgenero) {
-        super(nombre, autor, editorial, fechaDePublicacion, Genero.TERROR, precio, stock);
+    public LibroTerror(String nombre, String autor, String editorial, double precio, int stock, SubgeneroTerror subgenero) {
+        super(nombre, autor, editorial, Genero.TERROR, precio, stock);
         this.subgenero = subgenero;
     }
 
@@ -25,7 +25,7 @@ public class LibroTerror extends Libro {
         String nombre = datosComun.get(0);
         String autor = datosComun.get(1);
         String editorial = datosComun.get(2);
-        LocalDate fechaPublicacion = LocalDate.parse(datosComun.get(3));
+        //LocalDate fechaPublicacion = LocalDate.parse(datosComun.get(3));
         double precio = Double.parseDouble(datosComun.get(4));
         int stock = Integer.parseInt(datosComun.get(5));
 
@@ -43,7 +43,7 @@ public class LibroTerror extends Libro {
             subgeneroInput = SubgeneroTerror.CRIMEN;
         }
 
-        LibroTerror libroTerror = new LibroTerror(nombre, autor, editorial, fechaPublicacion, precio, stock, subgeneroInput);
+        LibroTerror libroTerror = new LibroTerror(nombre, autor, editorial, precio, stock, subgeneroInput);
     }
     @Override
     public String toString(){

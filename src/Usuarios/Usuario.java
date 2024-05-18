@@ -1,7 +1,7 @@
 package Usuarios;
 import Usuarios.utils.Rol;
 
-import java.time.LocalDate;
+//import java.time.LocalDate;
 
 public class Usuario {
     private static int CANTIDAD_USUARIOS = 1;
@@ -13,15 +13,15 @@ public class Usuario {
     private String numeroTelefono;
     private String nombreUsuario;
     private String contrasena;
-    private LocalDate fechaNacimiento;
+    //private LocalDate fechaNacimiento;
 
-    public Usuario(String nombre, String apellidoPaterno, String apellidoMaterno, LocalDate fechaNacimiento, Rol rol, String numeroTelefono, String nombreUsuario, String contrasena) {
+    public Usuario(String nombre, String apellidoPaterno, String apellidoMaterno, Rol rol, String numeroTelefono, String nombreUsuario, String contrasena) {
         this.id = CANTIDAD_USUARIOS;
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno= apellidoMaterno;
         this.rol = rol;
-        this.fechaNacimiento = fechaNacimiento;
+        //this.fechaNacimiento = fechaNacimiento;
         this.contrasena = contrasena;
         this.nombreUsuario = nombreUsuario;
         this.numeroTelefono = numeroTelefono;
@@ -30,7 +30,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return String.format("Id: %d, Nombre completo: %s %s %s, rol: %s, numero teléfono: %s, fecha de nacimiento: %s", id, nombre, apellidoPaterno,apellidoMaterno, rol, numeroTelefono,fechaNacimiento);
+        return String.format("Id: %d, Nombre completo: %s %s %s, rol: %s, numero teléfono: %s, fecha de nacimiento: ", id, nombre, apellidoPaterno,apellidoMaterno, rol, numeroTelefono);
     }
     public String getApellidoMaterno() {
         return apellidoMaterno;
